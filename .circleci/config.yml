@@ -1,0 +1,21 @@
+version: 1
+jobs: 
+  build:
+    enviroment:
+      LC_ALL: C.UTF-8
+      LANG: C.UTF-8
+    docker:
+      - image: debian:stretch
+    steps:
+      - checkout
+      - run:
+          name: Install Dependecies
+          command: |
+            apt-get update
+            apt-get -y install locale make
+            apt-get -y install util-linux bsdmainutils gawk
+      - run:
+          name: Usage
+          command: |
+            ./translate.sh
+          
