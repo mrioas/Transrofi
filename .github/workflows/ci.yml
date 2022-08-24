@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - develop
+    - stable
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get -y install gawk curl rlwrap
+    - name: Usage
+      run: |
+        chmod +x translate.sh
+        ./translate.sh
