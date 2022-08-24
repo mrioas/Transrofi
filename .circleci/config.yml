@@ -15,7 +15,7 @@ jobs:
             apt-get -y install locales make
             apt-get -y install util-linux bsdmainutils gawk curl rlwrap emacs
       - run:
-          name: transrofi
+          name: Usage
           command: |
             chmod +x translate.sh
             ./translate.sh
